@@ -3,15 +3,16 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({super.key, required this.title, required this.meals});
-  final String title;
+  const MealsScreen({super.key, this.title, required this.meals,required this.onToggleFav});
+  final String? title;
+  final void Function(Meal)onToggleFav; 
   final List<Meal> meals;
   @override
   Widget build(BuildContext context) {
     Widget content = ListView.builder(
       itemCount: meals.length,
       itemBuilder: (ctx, idx) {
-        return MealItem(meals[idx]);
+        return MealItem(meals[idx],onToggleFav: onToggleFav,);
         // Text(meals[idx].title,style: Theme.of(context)
         //           .textTheme
         //           .bodyLarge!
@@ -44,13 +45,21 @@ class MealsScreen extends StatelessWidget {
         ),
       );
     }
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title,style: Theme.of(context).textTheme.displaySmall!.copyWith(
-          color: Theme.of(context).colorScheme.onSurface
-        ),),
-      ),
-      body: content,
-    );
+    if (title == null) {
+      return content;
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            title!,
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall!
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
+          ),
+        ),
+        body: content,
+      );
+    }
   }
 }

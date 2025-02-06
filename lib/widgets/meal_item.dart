@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
-import 'package:meals_app/screens/meals_details.dart';
+import 'package:meals_app/screens/meals_details_screen.dart';
 import 'package:meals_app/widgets/meal_item_metadata.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem(this.meal, {super.key});
+  const MealItem(this.meal, {super.key,required this.onToggleFav});
+  final void Function(Meal)onToggleFav; 
   final Meal meal;
-  void _mealDetails(Meal meal,BuildContext ctx) {
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (ctx){
-      return MealsDetails(meal);
+  void _mealDetails(Meal meal, BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (ctx) {
+      return MealsDetailsScreen(meal,onToggleFav: onToggleFav);
     }));
   }
 
@@ -32,7 +33,9 @@ class MealItem extends StatelessWidget {
       // this forces the child to be inside the card (to take the shap as card)
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        onTap: () {_mealDetails(meal,context);},
+        onTap: () {
+          _mealDetails(meal, context);
+        },
         child: Stack(
           children: [
             // Image(image: NetworkImage(meal.imageUrl)),
