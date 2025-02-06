@@ -3,9 +3,9 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/widgets/yes_no_icons.dart';
 
 class MealsDetailsScreen extends StatelessWidget {
-  const MealsDetailsScreen(this.meal, {super.key,required this.onToggleFav});
+  const MealsDetailsScreen(this.meal, {super.key, required this.onToggleFav});
   final Meal meal;
-  final void Function(Meal)onToggleFav; 
+  final void Function(Meal) onToggleFav;
   @override
   Widget build(BuildContext context) {
     // bool isFav=false;
@@ -13,9 +13,12 @@ class MealsDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(meal.title),
         actions: [
-          IconButton(onPressed: (){
-            onToggleFav(meal);
-          }, icon: Icon(Icons.star_border))
+          IconButton(
+            onPressed: () {
+              onToggleFav(meal);
+            },
+            icon: Icon(Icons.star_border),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -32,7 +35,7 @@ class MealsDetailsScreen extends StatelessWidget {
                 image: NetworkImage(meal.imageUrl),
               ),
             ),
-              const SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
@@ -55,7 +58,7 @@ class MealsDetailsScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
               ),
-              const SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
@@ -66,7 +69,7 @@ class MealsDetailsScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
             ),
-              const SizedBox(
+            const SizedBox(
               height: 12,
             ),
             for (String s in meal.steps)
@@ -81,7 +84,7 @@ class MealsDetailsScreen extends StatelessWidget {
                       ),
                 ),
               ),
-              const SizedBox(
+            const SizedBox(
               height: 12,
             ),
             GridView(

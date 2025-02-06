@@ -14,14 +14,20 @@ class TabScreen extends StatefulWidget {
 class _TabScreen extends State<TabScreen> {
   int _selectedPage = 0;
   List<Meal> fav = [];
+  void showFavMessage(String message){
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+  }
   void toggleMeal(Meal m) {
     if (fav.contains(m)) {
       setState(() {
         fav.remove(m);
+        showFavMessage("Meal Removed from Favorite");
       });
     } else {
       setState(() {
         fav.add(m);
+        showFavMessage("Meal Added in Favorite");
       });
     }
   }
