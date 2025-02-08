@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/main.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
@@ -14,10 +15,12 @@ class TabScreen extends StatefulWidget {
 class _TabScreen extends State<TabScreen> {
   int _selectedPage = 0;
   List<Meal> fav = [];
-  void showFavMessage(String message){
+  void showFavMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
+
   void toggleMeal(Meal m) {
     if (fav.contains(m)) {
       setState(() {
@@ -40,15 +43,48 @@ class _TabScreen extends State<TabScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget activeScreen =  CategoriesScreen(onToggleFav:toggleMeal);
+    Widget activeScreen = CategoriesScreen(onToggleFav: toggleMeal);
     String appBarTitle = "Pick Your Category";
     if (_selectedPage == 1) {
-      activeScreen = MealsScreen(meals: fav,onToggleFav: toggleMeal,);
+      activeScreen = MealsScreen(
+        meals: fav,
+        onToggleFav: toggleMeal,
+      );
       appBarTitle = "Favorite";
     }
     return Scaffold(
       appBar: AppBar(
         title: Text(appBarTitle),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.primary.withOpacity(0.8),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.fastfood,size: 100,),
+                    Text("Cooking Up!!!",style:  Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),)
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
