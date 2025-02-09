@@ -7,33 +7,33 @@ import 'package:meals_app/models/meal.dart';
 const availableCategories = [
   Category(
     id: 'c1',
-    title: 'North Indian',
-    color: Colors.orange,
+    title: 'Italian',
+    color: Colors.purple,
   ),
   Category(
     id: 'c2',
-    title: 'South Indian',
-    color: Colors.deepPurple,
-  ),
-  Category(
-    id: 'c3',
-    title: 'Chinese',
+    title: 'Quick & Easy',
     color: Colors.red,
   ),
   Category(
+    id: 'c3',
+    title: 'Burgers',
+    color: Colors.orange,
+  ),
+  Category(
     id: 'c4',
-    title: 'French',
-    color: Colors.blue,
+    title: 'German',
+    color: Colors.amber,
   ),
   Category(
     id: 'c5',
-    title: 'Street Food',
-    color: Colors.green,
+    title: 'Light & Lovely',
+    color: Colors.blue,
   ),
   Category(
     id: 'c6',
-    title: 'Punjabi',
-    color: Colors.yellow,
+    title: 'Exotic',
+    color: Colors.green,
   ),
   Category(
     id: 'c7',
@@ -42,23 +42,18 @@ const availableCategories = [
   ),
   Category(
     id: 'c8',
-    title: 'Maharashtrian',
-    color: Colors.pink,
+    title: 'Asian',
+    color: Colors.lightGreen,
   ),
   Category(
     id: 'c9',
-    title: 'Bengali',
-    color: Colors.teal,
+    title: 'French',
+    color: Colors.pink,
   ),
   Category(
     id: 'c10',
-    title: 'Desserts',
-    color: Colors.brown,
-  ),
-  Category(
-    id: 'c11',
-    title: 'Exotic',
-    color: Colors.purple,
+    title: 'Summer',
+    color: Colors.teal,
   ),
 ];
 
@@ -66,7 +61,8 @@ const dummyMeals = [
   Meal(
     id: 'm1',
     categories: [
-      'c11',
+      'c1',
+      'c2',
     ],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
@@ -99,7 +95,7 @@ const dummyMeals = [
   Meal(
     id: 'm2',
     categories: [
-      'c7',
+      'c2',
     ],
     title: 'Toast Hawaii',
     affordability: Affordability.affordable,
@@ -127,7 +123,8 @@ const dummyMeals = [
   Meal(
     id: 'm3',
     categories: [
-      'c5',
+      'c2',
+      'c3',
     ],
     title: 'Classic Burger',
     affordability: Affordability.pricey,
@@ -158,7 +155,7 @@ const dummyMeals = [
   Meal(
     id: 'm4',
     categories: [
-      'c11',
+      'c4',
     ],
     title: 'Wiener Schnitzel',
     affordability: Affordability.luxurious,
@@ -193,7 +190,9 @@ const dummyMeals = [
   Meal(
     id: 'm5',
     categories: [
-      'c11',
+      'c2'
+          'c5',
+      'c10',
     ],
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.luxurious,
@@ -227,6 +226,7 @@ const dummyMeals = [
   Meal(
     id: 'm6',
     categories: [
+      'c6',
       'c10',
     ],
     title: 'Delicious Orange Mousse',
@@ -293,7 +293,7 @@ const dummyMeals = [
   Meal(
     id: 'm8',
     categories: [
-      'c1',
+      'c8',
     ],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.pricey,
@@ -326,7 +326,7 @@ const dummyMeals = [
   Meal(
     id: 'm9',
     categories: [
-      'c10',
+      'c9',
     ],
     title: 'Chocolate Souffle',
     affordability: Affordability.affordable,
@@ -375,7 +375,9 @@ const dummyMeals = [
   Meal(
     id: 'm10',
     categories: [
-      'c11',
+      'c2',
+      'c5',
+      'c10',
     ],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.luxurious,
@@ -405,13 +407,12 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm11',
-    categories: ['c1','c6'],
+    id: 'm1',
+    categories: ['c8'],
     title: 'Paneer Butter Masala',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
-    imageUrl:
-        'https://www.secondrecipe.com/wp-content/uploads/2021/08/roti-paneer-butter-masala-720x873.jpg',
+    imageUrl: 'https://www.secondrecipe.com/wp-content/uploads/2021/08/roti-paneer-butter-masala-720x873.jpg',
     duration: 30,
     ingredients: [
       '200g Paneer',
@@ -432,13 +433,12 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm12',
-    categories: ['c1,c6'],
+    id: 'm2',
+    categories: ['c8'],
     title: 'Chole Bhature',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
-    imageUrl:
-        'https://images.hindi.news18.com/ibnkhabar/uploads/2021/06/chole-bhature.jpg?impolicy=website&width=640&height=480',
+    imageUrl: 'https://images.hindi.news18.com/ibnkhabar/uploads/2021/06/chole-bhature.jpg?impolicy=website&width=640&height=480',
     duration: 50,
     ingredients: [
       '1 cup Chickpeas',
@@ -459,13 +459,12 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm13',
-    categories: ['c2'],
+    id: 'm3',
+    categories: ['c8'],
     title: 'Masala Dosa',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
-    imageUrl:
-        'https://www.palatesdesire.com/wp-content/uploads/2019/09/Mysore_Masala_Dosa@Palates_Desire-1024x738.jpg',
+    imageUrl: 'https://www.palatesdesire.com/wp-content/uploads/2019/09/Mysore_Masala_Dosa@Palates_Desire-1024x738.jpg',
     duration: 40,
     ingredients: [
       '2 cups Rice',
@@ -487,13 +486,12 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm14',
+    id: 'm4',
     categories: ['c10'],
     title: 'Mango Lassi',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl:
-        'https://www.cookclickndevour.com/wp-content/uploads/2016/05/mango-lassi-recipe-c.jpg',
+    imageUrl: 'https://www.cookclickndevour.com/wp-content/uploads/2016/05/mango-lassi-recipe-c.jpg',
     duration: 10,
     ingredients: [
       '1 Ripe Mango',
@@ -512,13 +510,12 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm15',
+    id: 'm5',
     categories: ['c7'],
     title: 'Poha',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl:
-        'https://www.foodie-trail.com/wp-content/uploads/2022/12/PHOTO-2022-12-14-21-39-40.jpg',
+    imageUrl: 'https://www.foodie-trail.com/wp-content/uploads/2022/12/PHOTO-2022-12-14-21-39-40.jpg',
     duration: 15,
     ingredients: [
       '1 cup Flattened rice',
@@ -539,8 +536,8 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm16',
-    categories: ['c1'],
+    id: 'm11',
+    categories: ['c8'],
     title: 'Dal Tadka',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -568,8 +565,8 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm17',
-    categories: ['c1'],
+    id: 'm12',
+    categories: ['c8'],
     title: 'Palak Paneer',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
@@ -597,8 +594,8 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm18',
-    categories: ['c1'],
+    id: 'm13',
+    categories: ['c8'],
     title: 'Rajma Chawal',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -625,8 +622,8 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm19',
-    categories: ['c7'],
+    id: 'm14',
+    categories: ['c8'],
     title: 'Aloo Paratha',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
@@ -652,7 +649,7 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm20',
+    id: 'm15',
     categories: ['c8'],
     title: 'Hyderabadi Biryani',
     affordability: Affordability.luxurious,
@@ -680,8 +677,8 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm21',
-    categories: ['c5','c8'],
+    id: 'm16',
+    categories: ['c8'],
     title: 'Pani Puri',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
@@ -708,8 +705,8 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm22',
-    categories: ['c10'],
+    id: 'm17',
+    categories: ['c8'],
     title: 'Gulab Jamun',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
@@ -735,210 +732,5 @@ const dummyMeals = [
     isVegetarian: true,
     isLactoseFree: false,
   ),
-  Meal(
-    id: 'm23',
-    categories: ['c1','c6'],
-    title: 'Butter Chicken',
-    affordability: Affordability.pricey,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1024/https://www.spiceroots.com/spiceroots/wp-content/uploads/2008/05/butterchicken-1024x682.jpg',
-    duration: 50,
-    ingredients: [
-      '500g Chicken',
-      '1 cup Tomato Puree',
-      '2 tbsp Butter',
-      '1 cup Fresh Cream',
-      'Garlic-Ginger Paste',
-      'Spices (Garam Masala, Turmeric)',
-    ],
-    steps: [
-      'Marinate chicken in yogurt and spices',
-      'Grill chicken pieces',
-      'Prepare creamy tomato gravy',
-      'Combine chicken and gravy',
-      'Simmer with cream and butter'
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
-  ),
 
-  Meal(
-    id: 'm25',
-    categories: ['c6'],
-    title: 'Sarson Ka Saag',
-    affordability: Affordability.affordable,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://i0.wp.com/binjalsvegkitchen.com/wp-content/uploads/2016/11/Sarson-Ka-Saag-H1.jpg?w=600&ssl=1',
-    duration: 60,
-    ingredients: [
-      'Mustard Greens',
-      'Spinach',
-      'Makki Ka Atta',
-      'Ghee',
-      'Spices'
-    ],
-    steps: [
-      'Cook greens until soft',
-      'Blend into a coarse paste',
-      'Cook with spices and serve with makki di roti'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-
-  Meal(
-    id: 'm27',
-    categories: ['c8'],
-    title: 'Pav Bhaji',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/pav-bhaji-recipe-1.jpg',
-    duration: 30,
-    ingredients: ['Mixed Vegetables', 'Butter', 'Pav Buns', 'Spices'],
-    steps: [
-      'Cook and mash vegetables',
-      'Prepare spicy bhaji',
-      'Serve with buttered pav'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-
-  Meal(
-    id: 'm28',
-    categories: ['c9'],
-    title: 'Macher Jhol',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://rupal-bhatikar.com/wp-content/uploads/2021/11/DSC04256-1.jpg',
-    duration: 40,
-    ingredients: ['Fish', 'Mustard Oil', 'Turmeric', 'Tomatoes', 'Spices'],
-    steps: [
-      'Marinate fish with turmeric',
-      'Prepare light curry',
-      'Simmer fish in curry'
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
-  ),
-
-  // Chinese Meals
-  Meal(
-    id: 'm30',
-    categories: ['c3'],
-    title: 'Vegetable Manchurian',
-    affordability: Affordability.affordable,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://vegecravings.com/wp-content/uploads/2017/03/veg-manchurian-dry-recipe-step-by-step-instructions-10.jpg',
-    duration: 35,
-    ingredients: [
-      'Mixed Vegetables',
-      'Cornflour',
-      'Soy Sauce',
-      'Ginger-Garlic Paste',
-      'Green Chilies',
-    ],
-    steps: [
-      'Make vegetable balls and deep-fry',
-      'Prepare tangy sauce',
-      'Toss balls in sauce'
-    ],
-    isGlutenFree: false,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
-  ),
-
-  // French Meals
-  Meal(
-    id: 'm31',
-    categories: ['c4'],
-    title: 'Ratatouille',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://www.allrecipes.com/thmb/bkXoArv3mjCmhOHKPBkaQUR48dg=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.jpg',
-    duration: 45,
-    ingredients: [
-      'Zucchini',
-      'Eggplant',
-      'Bell Peppers',
-      'Tomato Sauce',
-      'Herbs de Provence',
-    ],
-    steps: [
-      'Slice vegetables thinly',
-      'Layer in baking dish',
-      'Bake with tomato sauce and herbs'
-    ],
-    isGlutenFree: true,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
-  ),
-
-  // Additional 25+ meals (abbreviated for space)
-  Meal(
-    id: 'm32',
-    categories: ['c5'],
-    title: 'Vada Pav',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://ministryofcurry.com/wp-content/uploads/2024/06/vada-pav-9.jpg',
-    duration: 30,
-    ingredients: ['Potatoes', 'Gram Flour', 'Pav Buns', 'Green Chutney'],
-    steps: ['Make potato filling', 'Dip in batter and fry', 'Assemble in buns'],
-    isGlutenFree: false,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
-  ),
-
-  Meal(
-    id: 'm33',
-    categories: ['c3'],
-    title: 'Hakka Noodles',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/hakka-noodles.webp',
-    duration: 25,
-    ingredients: ['Noodles', 'Mixed Vegetables', 'Soy Sauce', 'Vinegar'],
-    steps: ['Boil noodles', 'Stir-fry veggies', 'Combine with sauces'],
-    isGlutenFree: false,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
-  ),
-
-  Meal(
-    id: 'm34',
-    categories: ['c4'],
-    title: 'Quiche Lorraine (Chicken)',
-    affordability: Affordability.pricey,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://preppykitchen.co.uk/wp-content/uploads/2024/07/Quiche-Lorraine-Feature.jpg',
-    duration: 55,
-    ingredients: ['Pie Crust', 'Eggs', 'Chicken', 'Cheese', 'Cream'],
-    steps: ['Pre-bake crust', 'Mix filling', 'Bake until golden'],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
-  ),
 ];

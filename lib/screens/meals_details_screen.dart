@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/widgets/yes_no_icons.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class MealsDetailsScreen extends StatelessWidget {
   const MealsDetailsScreen(this.meal, {super.key, required this.onToggleFav});
@@ -31,8 +32,10 @@ class MealsDetailsScreen extends StatelessWidget {
               shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
               clipBehavior: Clip.hardEdge,
-              child: Image(
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
                 image: NetworkImage(meal.imageUrl),
+                // height: 200,
               ),
             ),
             const SizedBox(
