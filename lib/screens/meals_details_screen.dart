@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/provider/fav_meals_provider.dart';
 import 'package:meals_app/widgets/yes_no_icons.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class MealsDetailsScreen extends StatelessWidget {
-  const MealsDetailsScreen(this.meal, {super.key, required this.onToggleFav});
+class MealsDetailsScreen extends ConsumerWidget {
+  const MealsDetailsScreen(this.meal, {super.key});
   final Meal meal;
-  final void Function(Meal) onToggleFav;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // bool isFav=false;
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +17,18 @@ class MealsDetailsScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              onToggleFav(meal);
+              final isAdded =
+                  ref.read(favMealsProvider.notifier).toggleFav(meal);
+              String message = "${meal.title} is REMOVED from Favourite";
+              if (isAdded) {
+                message = "${meal.title} is ADDED to Favourite";
+              }
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                ),
+              );
             },
             icon: const Icon(Icons.star_border),
           )

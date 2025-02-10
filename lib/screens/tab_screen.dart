@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 // import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/provider/fav_meals_provider.dart';
+import 'package:meals_app/provider/filtered_meal_provider.dart';
 import 'package:meals_app/provider/meals_provider.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/filter_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 const kDefaultFilterState = {
   Filters.gluten: false,
   Filters.lactose: false,
@@ -22,28 +25,27 @@ class TabScreen extends ConsumerStatefulWidget {
 }
 
 class _TabScreen extends ConsumerState<TabScreen> {
-  Map<Filters, bool> _selectedFilters = kDefaultFilterState;
   int _selectedPage = 0;
-  List<Meal> fav = [];
-  void showFavMessage(String message) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
-  }
+  // List<Meal> fav = [];
+  // void showFavMessage(String message) {
+  //   ScaffoldMessenger.of(context).clearSnackBars();
+  //   ScaffoldMessenger.of(context)
+  //       .showSnackBar(SnackBar(content: Text(message)));
+  // }
 
-  void toggleMeal(Meal m) {
-    if (fav.contains(m)) {
-      setState(() {
-        fav.remove(m);
-        showFavMessage("Meal Removed from Favorite");
-      });
-    } else {
-      setState(() {
-        fav.add(m);
-        showFavMessage("Meal Added in Favorite");
-      });
-    }
-  }
+  // void toggleMeal(Meal m) {
+  //   if (fav.contains(m)) {
+  //     setState(() {
+  //       fav.remove(m);
+  //       showFavMessage("Meal Removed from Favorite");
+  //     });
+  //   } else {
+  //     setState(() {
+  //       fav.add(m);
+  //       showFavMessage("Meal Added in Favorite");
+  //     });
+  //   }
+  // }
 
   void _setPage(int index) {
     setState(() {
@@ -51,50 +53,43 @@ class _TabScreen extends ConsumerState<TabScreen> {
     });
   }
 
-  void _selectScreen(String identifier) async {
+  void _selectScreen(String identifier) {
     // we are at TABS/ CategoryScreen Already
     Navigator.of(context).pop();
     if (identifier == "Meals") {
     } else {
-      final filterResult = await Navigator.of(context)
-          .push<Map<Filters, bool>>(MaterialPageRoute(builder: (context) {
-        return  FilterScreen(curFilter: _selectedFilters);
-      }));
+      // final filterResult =
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return const FilterScreen();
+          },
+        ),
+      );
       // print(filterResult);
-      setState(() {
-        _selectedFilters = filterResult ?? kDefaultFilterState;
-      });
+      // for(var F in filterResult!.entries){
+      //   ref.read(filteredMealProvider.notifier).setFilter(F.key,F.value);
+      // }
+      // setState(
+      //   () {
+      //     _selectedFilters = filterResult ?? kDefaultFilterState;
+      //   },
+      // );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final mealList=ref.watch(mealsProvider);
-    final List<Meal> filteredMeals = mealList.where((meal) {
-      if (_selectedFilters[Filters.gluten]! && !meal.isGlutenFree  ) {
-        return false;
-      }
-      if (_selectedFilters[Filters.lactose]! && !meal.isLactoseFree  ) {
-        return false;
-      }
-      if (_selectedFilters[Filters.vegetarian]! && !meal.isVegetarian ) {
-        return false;
-      }
-      if (_selectedFilters[Filters.vegan]! && !meal.isVegan  ) {
-        return false;
-      }
-      return true;
-    }).toList();
+    final favMealList=ref.watch(favMealsProvider);
+    final List<Meal> filteredMeals = ref.watch(filteredMealListProvider);
     Widget activeScreen = CategoriesScreen(
-      onToggleFav: toggleMeal,
       filteredMeals: filteredMeals,
     );
     String appBarTitle = "Pick Your Category";
     // 1 means favorite
     if (_selectedPage == 1) {
       activeScreen = MealsScreen(
-        meals: fav,
-        onToggleFav: toggleMeal,
+        meals: favMealList,
       );
       appBarTitle = "Favorite";
     }

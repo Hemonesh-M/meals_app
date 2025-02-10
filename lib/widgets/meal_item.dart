@@ -5,12 +5,12 @@ import 'package:meals_app/widgets/meal_item_metadata.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem(this.meal, {super.key,required this.onToggleFav});
-  final void Function(Meal)onToggleFav; 
+  const MealItem(this.meal, {super.key});
+  
   final Meal meal;
   void _mealDetails(Meal meal, BuildContext ctx) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (ctx) {
-      return MealsDetailsScreen(meal,onToggleFav: onToggleFav);
+      return MealsDetailsScreen(meal);
     }));
   }
 
