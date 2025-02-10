@@ -10,7 +10,9 @@ class MealsDetailsScreen extends ConsumerWidget {
   final Meal meal;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // bool isFav=false;
+    List<Meal> favs=ref.watch(favMealsProvider); 
+    bool isFav=favs.contains(meal);
+    // bool isFav=ref.watch(favMealsProvider.notifier).isFav(meal);
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -18,7 +20,7 @@ class MealsDetailsScreen extends ConsumerWidget {
           IconButton(
             onPressed: () {
               final isAdded =
-                  ref.read(favMealsProvider.notifier).toggleFav(meal);
+                  ref.watch(favMealsProvider.notifier).toggleFav(meal);
               String message = "${meal.title} is REMOVED from Favourite";
               if (isAdded) {
                 message = "${meal.title} is ADDED to Favourite";
@@ -30,7 +32,8 @@ class MealsDetailsScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.star_border),
+            icon:  Icon(isFav? Icons.star:Icons.star_border),
+            // icon: const Icon(Icons.star_border),
           )
         ],
       ),
