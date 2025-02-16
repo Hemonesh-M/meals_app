@@ -8,11 +8,10 @@ class MealsScreen extends StatelessWidget {
   final List<Meal> meals;
   @override
   Widget build(BuildContext context) {
-    int col=MediaQuery.of(context).size.width>=500?2:1;
+    int col=MediaQuery.of(context).size.width>=400?2:1;
     Widget content = GridView.builder(
       itemCount: meals.length,
-      gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: col,
-      childAspectRatio: 2),
+      gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: col),
       itemBuilder: (ctx, idx) {
         return MealItem(meals[idx],);
         // Text(meals[idx].title,style: Theme.of(context)
@@ -20,7 +19,6 @@ class MealsScreen extends StatelessWidget {
         //           .bodyLarge!
         //           .copyWith(color: Theme.of(context).colorScheme.onSurface),);
       },
-      
     );
     if (meals.isEmpty) {
       content = Center(

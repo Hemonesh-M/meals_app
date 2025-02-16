@@ -24,9 +24,9 @@ class MealItem extends StatelessWidget {
     return meal.affordability.name[0].toUpperCase() +
         meal.affordability.name.substring(1);
   }
-
   @override
   Widget build(BuildContext context) {
+  
     return Card(
       margin: const EdgeInsets.all(8),
       elevation: 2,
@@ -39,19 +39,16 @@ class MealItem extends StatelessWidget {
         },
         child: Stack(
           children: [
-            Image(image: NetworkImage(meal.imageUrl)),
+            // Image(image: NetworkImage(meal.imageUrl)),
             CachedNetworkImage(
-              fadeInDuration:
-                  Duration(milliseconds: 800), // Smooth fade-in effect
-              fadeInCurve: Curves.easeIn, // Controls the fade animation curve
               imageUrl: meal.imageUrl,
               placeholder: (context, url) =>
-                  const SizedBox(child: CircularProgressIndicator()),
+                  Container(height: 200, child: CircularProgressIndicator()),
               errorWidget: (context, url, error) =>
-                  const SizedBox(height: 200, child: Icon(Icons.error)),
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 200,
+                  Container(height: 200, child: Icon(Icons.error)),
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
             ),
 
             // FadeInImage(
