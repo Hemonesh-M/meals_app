@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,24 +47,26 @@ class MealsDetailsScreen extends ConsumerWidget {
         child: Column(
           children: [
             Card(
-                shape: BeveledRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-                clipBehavior: Clip.hardEdge,
-                child: CachedNetworkImage(
-                  imageUrl: meal.imageUrl,
-                  placeholder: (context, url) => Container(
-                      height: 200, child: const CircularProgressIndicator()),
-                  errorWidget: (context, url, error) =>
-                      Container(height: 200, child: const Icon(Icons.error)),
-                  width: double.infinity,
-                )
+              shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)),
+              clipBehavior: Clip.hardEdge,
+              child: CachedNetworkImage(
+                imageUrl: meal.imageUrl,
+                placeholder: (context, url) =>
+                    const SizedBox(height: 200,child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) =>
+                    const SizedBox(height: 200, child: Icon(Icons.error)),
+                fit: BoxFit.cover,
+                width: double.infinity,
+                // height: 200,
+              ),
 
-                // FadeInImage(
-                //   placeholder: MemoryImage(kTransparentImage),
-                //   image: NetworkImage(meal.imageUrl),
-                //   // height: 200,
-                // ),
-                ),
+              // FadeInImage(
+              //   placeholder: MemoryImage(kTransparentImage),
+              //   image: NetworkImage(meal.imageUrl),
+              //   // height: 200,
+              // ),
+            ),
             const SizedBox(
               height: 12,
             ),
