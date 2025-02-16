@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/meals_details_screen.dart';
@@ -6,7 +7,7 @@ import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem(this.meal, {super.key});
-  
+
   final Meal meal;
   void _mealDetails(Meal meal, BuildContext ctx) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (ctx) {
@@ -23,9 +24,9 @@ class MealItem extends StatelessWidget {
     return meal.affordability.name[0].toUpperCase() +
         meal.affordability.name.substring(1);
   }
-
   @override
   Widget build(BuildContext context) {
+  
     return Card(
       margin: const EdgeInsets.all(8),
       elevation: 2,
@@ -39,13 +40,24 @@ class MealItem extends StatelessWidget {
         child: Stack(
           children: [
             // Image(image: NetworkImage(meal.imageUrl)),
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
+            CachedNetworkImage(
+              imageUrl: meal.imageUrl,
+              placeholder: (context, url) =>
+                  Container(height: 200, child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) =>
+                  Container(height: 200, child: Icon(Icons.error)),
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
             ),
+
+            // FadeInImage(
+            //   placeholder: MemoryImage(kTransparentImage),
+            //   image: NetworkImage(meal.imageUrl),
+            //   fit: BoxFit.cover,
+            //   height: 200,
+            //   width: double.infinity,
+            // ),
             Positioned(
                 left: 0,
                 right: 0,

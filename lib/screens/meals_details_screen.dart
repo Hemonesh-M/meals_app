@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/models/meal.dart';
@@ -10,8 +11,8 @@ class MealsDetailsScreen extends ConsumerWidget {
   final Meal meal;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<Meal> favs=ref.watch(favMealsProvider); 
-    bool isFav=favs.contains(meal);
+    List<Meal> favs = ref.watch(favMealsProvider);
+    bool isFav = favs.contains(meal);
     // bool isFav=ref.watch(favMealsProvider.notifier).isFav(meal);
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +33,7 @@ class MealsDetailsScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon:  Icon(isFav? Icons.star:Icons.star_border),
+            icon: Icon(isFav ? Icons.star : Icons.star_border),
             // icon: const Icon(Icons.star_border),
           )
         ],
@@ -44,15 +45,24 @@ class MealsDetailsScreen extends ConsumerWidget {
         child: Column(
           children: [
             Card(
-              shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              clipBehavior: Clip.hardEdge,
-              child: FadeInImage(
-                placeholder: MemoryImage(kTransparentImage),
-                image: NetworkImage(meal.imageUrl),
-                // height: 200,
-              ),
-            ),
+                shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                clipBehavior: Clip.hardEdge,
+                child: CachedNetworkImage(
+                  imageUrl: meal.imageUrl,
+                  placeholder: (context, url) => Container(
+                      height: 200, child: const CircularProgressIndicator()),
+                  errorWidget: (context, url, error) =>
+                      Container(height: 200, child: const Icon(Icons.error)),
+                  width: double.infinity,
+                )
+
+                // FadeInImage(
+                //   placeholder: MemoryImage(kTransparentImage),
+                //   image: NetworkImage(meal.imageUrl),
+                //   // height: 200,
+                // ),
+                ),
             const SizedBox(
               height: 12,
             ),
