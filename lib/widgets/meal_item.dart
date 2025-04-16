@@ -42,7 +42,7 @@ class MealItem extends StatelessWidget {
             Image(image: NetworkImage(meal.imageUrl)),
             CachedNetworkImage(
               fadeInDuration:
-                  Duration(milliseconds: 800), // Smooth fade-in effect
+                  const Duration(milliseconds: 800), // Smooth fade-in effect
               fadeInCurve: Curves.easeIn, // Controls the fade animation curve
               imageUrl: meal.imageUrl,
               placeholder: (context, url) =>

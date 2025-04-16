@@ -61,20 +61,84 @@ const availableCategories = [
     color: Colors.purple,
   ),
 ];
-
-const dummyMeals = [
+const mealImagePaths = [
+  'assets/images/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg', // m1
+  'assets/images/toast-3532016_1280.jpg',                                  // m2
+  'assets/images/burger-500054_1280.jpg',                                  // m3
+  'assets/images/schnitzel-3279045_1280.jpg',                              // m4
+  'assets/images/smoked-salmon-salad-1768890_1280.jpg',                    // m5
+  'assets/images/pastry-2274750_1280.jpg',                                 // m6
+  'assets/images/pancake-3529653_1280.jpg',                                // m7
+  'assets/images/indian-food-3482749_1280.jpg',                            // m8
+  'assets/images/souffle-412785_1280.jpg',                                 // m9
+  'assets/images/asparagus-3304997_1280.jpg',                              // m10
+  'assets/images/roti-paneer-butter-masala-720x873.jpg',                   // m11
+  'assets/images/chole-bhature.jpg',                                       // m12
+  'assets/images/Mysore_Masala_Dosa@Palates_Desire-1024x738.jpg',         // m13
+  'assets/images/mango-lassi-recipe-c.jpg',                                // m14
+  'assets/images/Poha.jpg',                                                // m15
+  'assets/images/dal-tadka.webp',                                          // m16
+  'assets/images/PalakPaneer1280x903-1024x722.jpg',                        // m17
+  "assets/images/Rajmachawal.jpg",                                          //m18
+  "assets/images/Aloo_Paratha_also_known_as_Batatay_Jo_Phulko.jpg",         //m19
+  'assets/images/hyderabadi-biryani-with-chicken.webp',                    // m20
+  'assets/images/Pani_Puri1.JPG',                                          // m21
+  'assets/images/Gulab-Jamun-with-Milk-Powder.jpg',                        // m22
+  'assets/images/butterchicken-1024x682.jpg',                              // m23
+  'assets/images/Sarson-Ka-Saag-H1.jpg',                                   // m24
+  'assets/images/pav-bhaji-recipe-1.jpg',                                  // m25
+  "assets/images/Machher Jhol.jpg",                                         //m26
+  'assets/images/veg-manchurian-dry-recipe-step-by-step-instructions-10.jpg', // m27
+  'assets/images/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.webp', // m28
+  'assets/images/vada-pav-9.jpg',                                          // m29
+  'assets/images/hakka-noodles.webp',                                      // m30
+  'assets/images/Quiche-Lorraine-Feature.jpg',                             // m31
+];
+const mealImagePaths1 = [
+  'assets/images/roti-paneer-butter-masala-720x873.jpg',                   // m1
+  'assets/images/Sarson-Ka-Saag-H1.jpg',                                   // m2
+  'assets/images/schnitzel-3279045_1280.jpg',                              // m3
+  'assets/images/smoked-salmon-salad-1768890_1280.jpg',                    // m4
+  'assets/images/souffle-412785_1280.jpg',                                 // m5
+  'assets/images/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg', // m6
+  'assets/images/toast-3532016_1280.jpg',                                  // m7
+  'assets/images/vada-pav-9.jpg',                                          // m8
+  'assets/images/veg-manchurian-dry-recipe-step-by-step-instructions-10.jpg', // m9
+  'assets/images/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.webp', // m10
+  'assets/images/Aloo_Paratha_also_known_as_Batatay_Jo_Phulko.jpg',       // m11
+  'assets/images/asparagus-3304997_1280.jpg',                              // m12
+  'assets/images/burger-500054_1280.jpg',                                  // m13
+  'assets/images/butterchicken-1024x682.jpg',                              // m14
+  'assets/images/chole-bhature.jpg',                                       // m15
+  'assets/images/dal-tadka.webp',                                          // m16
+  'assets/images/Machher Jhol.jpg',                                        // m17
+  'assets/images/Gulab-Jamun-with-Milk-Powder.jpg',                        // m18
+  'assets/images/hakka-noodles.webp',                                      // m19
+  'assets/images/hyderabadi-biryani-with-chicken.webp',                    // m20
+  'assets/images/indian-food-3482749_1280.jpg',                            // m21
+  'assets/images/mango-lassi-recipe-c.jpg',                                // m22
+  'assets/images/Mysore_Masala_Dosa@Palates_Desire-1024x738.jpg',         // m23
+  'assets/images/PalakPaneer1280x903-1024x722.jpg',                        // m24
+  'assets/images/pancake-3529653_1280.jpg',                                // m25
+  'assets/images/Pani_Puri1.JPG',                                          // m26
+  'assets/images/pastry-2274750_1280.jpg',                                 // m27
+  'assets/images/pav-bhaji-recipe-1.jpg',                                  // m28
+  'assets/images/Poha.jpg',                                                // m29
+  'assets/images/Quiche-Lorraine-Feature.jpg',                             // m30
+];
+var dummyMeals = [
   Meal(
     id: 'm1',
-    categories: [
+    categories: const [
       'c11',
     ],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+        mealImagePaths[0],
     duration: 20,
-    ingredients: [
+    ingredients: const [
       '4 Tomatoes',
       '1 Tablespoon of Olive Oil',
       '1 Onion',
@@ -82,7 +146,7 @@ const dummyMeals = [
       'Spices',
       'Cheese (optional)'
     ],
-    steps: [
+    steps: const [
       'Cut the tomatoes and the onion into small pieces.',
       'Boil some water - add salt to it once it boils.',
       'Put the spaghetti into the boiling water - they should be done in about 10 to 12 minutes.',
@@ -98,23 +162,23 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm2',
-    categories: [
+    categories: const [
       'c7',
     ],
     title: 'Toast Hawaii',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
+        mealImagePaths[1],
     duration: 10,
-    ingredients: [
+    ingredients: const [
       '1 Slice White Bread',
       '1 Slice Ham',
       '1 Slice Pineapple',
       '1-2 Slices of Cheese',
       'Butter'
     ],
-    steps: [
+    steps: const [
       'Butter one side of the white bread',
       'Layer ham, the pineapple and cheese on the white bread',
       'Bake the toast for round about 10 minutes in the oven at 200°C'
@@ -126,16 +190,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm3',
-    categories: [
+    categories: const [
       'c5',
     ],
     title: 'Classic Burger',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+        mealImagePaths[2],
     duration: 45,
-    ingredients: [
+    ingredients: const [
       '300g Meat',
       '1 Tomato',
       '1 Cucumber',
@@ -143,7 +207,7 @@ const dummyMeals = [
       'Ketchup',
       '2 Burger Buns'
     ],
-    steps: [
+    steps: const [
       'Form 2 patties',
       'Fry the patties for c. 4 minutes on each side',
       'Quickly fry the buns for c. 1 minute on each side',
@@ -157,16 +221,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm4',
-    categories: [
+    categories: const [
       'c11',
     ],
     title: 'Wiener Schnitzel',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
+        mealImagePaths[3],
     duration: 60,
-    ingredients: [
+    ingredients: const [
       '8 Veal Cutlets',
       '4 Eggs',
       '200g Bread Crumbs',
@@ -176,7 +240,7 @@ const dummyMeals = [
       'Salt',
       'Lemon Slices'
     ],
-    steps: [
+    steps: const [
       'Tenderize the veal to about 2–4mm, and salt on both sides.',
       'On a flat plate, stir the eggs briefly with a fork.',
       'Lightly coat the cutlets in flour then dip into the egg, and finally, coat in breadcrumbs.',
@@ -192,16 +256,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm5',
-    categories: [
+    categories: const [
       'c11',
     ],
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
+        mealImagePaths[4],
     duration: 15,
-    ingredients: [
+    ingredients: const [
       'Arugula',
       'Lamb\'s Lettuce',
       'Parsley',
@@ -212,7 +276,7 @@ const dummyMeals = [
       'Olive Oil',
       'Salt and Pepper'
     ],
-    steps: [
+    steps: const [
       'Wash and cut salad and herbs',
       'Dice the salmon',
       'Process mustard, vinegar and olive oil into a dessing',
@@ -226,16 +290,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm6',
-    categories: [
+    categories: const [
       'c10',
     ],
     title: 'Delicious Orange Mousse',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
+        mealImagePaths[5],
     duration: 240,
-    ingredients: [
+    ingredients: const [
       '4 Sheets of Gelatine',
       '150ml Orange Juice',
       '80g Sugar',
@@ -243,7 +307,7 @@ const dummyMeals = [
       '200g Cream',
       'Orange Peel',
     ],
-    steps: [
+    steps: const [
       'Dissolve gelatine in pot',
       'Add orange juice and sugar',
       'Take pot off the stove',
@@ -261,16 +325,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm7',
-    categories: [
+    categories: const [
       'c7',
     ],
     title: 'Pancakes',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
+        mealImagePaths[6],
     duration: 20,
-    ingredients: [
+    ingredients: const [
       '1 1/2 Cups all-purpose Flour',
       '3 1/2 Teaspoons Baking Powder',
       '1 Teaspoon Salt',
@@ -279,7 +343,7 @@ const dummyMeals = [
       '1 Egg',
       '3 Tablespoons Butter, melted',
     ],
-    steps: [
+    steps: const [
       'In a large bowl, sift together the flour, baking powder, salt and sugar.',
       'Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.',
       'Heat a lightly oiled griddle or frying pan over medium high heat.',
@@ -292,16 +356,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm8',
-    categories: [
+    categories: const [
       'c1',
     ],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
+        mealImagePaths[7],
     duration: 35,
-    ingredients: [
+    ingredients: const [
       '4 Chicken Breasts',
       '1 Onion',
       '2 Cloves of Garlic',
@@ -310,7 +374,7 @@ const dummyMeals = [
       '1 Teaspoon Cayenne Pepper',
       '500ml Coconut Milk',
     ],
-    steps: [
+    steps: const [
       'Slice and fry the chicken breast',
       'Process onion, garlic and ginger into paste and sauté everything',
       'Add spices and stir fry',
@@ -325,16 +389,16 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm9',
-    categories: [
+    categories: const [
       'c10',
     ],
     title: 'Chocolate Souffle',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
+        mealImagePaths[8],
     duration: 45,
-    ingredients: [
+    ingredients: const [
       '1 Teaspoon melted Butter',
       '2 Tablespoons white Sugar',
       '2 Ounces 70% dark Chocolate, broken into pieces',
@@ -348,7 +412,7 @@ const dummyMeals = [
       '1 Pinch Cream of Tartar',
       '1 Tablespoon white Sugar',
     ],
-    steps: [
+    steps: const [
       'Preheat oven to 190°C. Line a rimmed baking sheet with parchment paper.',
       'Brush bottom and sides of 2 ramekins lightly with 1 teaspoon melted butter; cover bottom and sides right up to the rim.',
       'Add 1 tablespoon white sugar to ramekins. Rotate ramekins until sugar coats all surfaces.',
@@ -374,23 +438,23 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm10',
-    categories: [
+    categories: const [
       'c11',
     ],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+        mealImagePaths[9],
     duration: 30,
-    ingredients: [
+    ingredients: const [
       'White and Green Asparagus',
       '30g Pine Nuts',
       '300g Cherry Tomatoes',
       'Salad',
       'Salt, Pepper and Olive Oil'
     ],
-    steps: [
+    steps: const [
       'Wash, peel and cut the asparagus',
       'Cook in salted water',
       'Salt and pepper the asparagus',
@@ -406,21 +470,21 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm11',
-    categories: ['c1','c6'],
+    categories: const ['c1','c6'],
     title: 'Paneer Butter Masala',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://www.secondrecipe.com/wp-content/uploads/2021/08/roti-paneer-butter-masala-720x873.jpg',
+        mealImagePaths[10],
     duration: 30,
-    ingredients: [
+    ingredients: const [
       '200g Paneer',
       '2 Tomatoes',
       '1 Onion',
       '50ml Cream',
       'Spices',
     ],
-    steps: [
+    steps: const [
       'Saute onions and tomatoes.',
       'Blend to a puree.',
       'Add spices and paneer cubes.',
@@ -433,21 +497,21 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm12',
-    categories: ['c1,c6'],
+    categories: const ['c1,c6'],
     title: 'Chole Bhature',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
     imageUrl:
-        'https://images.hindi.news18.com/ibnkhabar/uploads/2021/06/chole-bhature.jpg?impolicy=website&width=640&height=480',
+        mealImagePaths[11],
     duration: 50,
-    ingredients: [
+    ingredients: const [
       '1 cup Chickpeas',
       '2 Cups Flour',
       'Spices',
       '1 Onion',
       '1 Tomato',
     ],
-    steps: [
+    steps: const [
       'Soak and boil chickpeas.',
       'Prepare spicy gravy.',
       'Make and fry bhature.',
@@ -460,21 +524,21 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm13',
-    categories: ['c2'],
+    categories: const ['c2'],
     title: 'Masala Dosa',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://www.palatesdesire.com/wp-content/uploads/2019/09/Mysore_Masala_Dosa@Palates_Desire-1024x738.jpg',
+        mealImagePaths[12],
     duration: 40,
-    ingredients: [
+    ingredients: const [
       '2 cups Rice',
       '1 cup Urad dal',
       '2 Potatoes',
       'Spices',
       'Oil',
     ],
-    steps: [
+    steps: const [
       'Soak and grind rice and dal.',
       'Ferment batter overnight.',
       'Prepare potato filling.',
@@ -488,20 +552,20 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm14',
-    categories: ['c10'],
+    categories: const ['c10'],
     title: 'Mango Lassi',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.cookclickndevour.com/wp-content/uploads/2016/05/mango-lassi-recipe-c.jpg',
+        mealImagePaths[13],
     duration: 10,
-    ingredients: [
+    ingredients: const [
       '1 Ripe Mango',
       '200ml Yogurt',
       'Sugar',
       'Ice Cubes',
     ],
-    steps: [
+    steps: const [
       'Blend mango, yogurt, and sugar.',
       'Add ice cubes and blend again.',
       'Serve chilled.',
@@ -513,21 +577,21 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm15',
-    categories: ['c7'],
+    categories: const ['c7'],
     title: 'Poha',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.foodie-trail.com/wp-content/uploads/2022/12/PHOTO-2022-12-14-21-39-40.jpg',
+        mealImagePaths[14],
     duration: 15,
-    ingredients: [
+    ingredients: const [
       '1 cup Flattened rice',
       '1 Onion',
       '1 Green Chili',
       'Mustard Seeds',
       'Turmeric',
     ],
-    steps: [
+    steps: const [
       'Rinse poha in water.',
       'Saute onions and spices.',
       'Mix poha and cook for 2 mins.',
@@ -540,14 +604,14 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm16',
-    categories: ['c1'],
+    categories: const ['c1'],
     title: 'Dal Tadka',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/dal-tadka.webp',
+        mealImagePaths[15],
     duration: 30,
-    ingredients: [
+    ingredients: const [
       '1 cup Toor Dal',
       '2 Tomatoes',
       '1 Onion',
@@ -556,7 +620,7 @@ const dummyMeals = [
       'Spices',
       '1 tbsp Ghee',
     ],
-    steps: [
+    steps: const [
       'Boil toor dal with salt and turmeric.',
       'Saute onions, tomatoes, and spices.',
       'Mix cooked dal and simmer.',
@@ -569,14 +633,14 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm17',
-    categories: ['c1'],
+    categories: const ['c1'],
     title: 'Palak Paneer',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://seitansociety.com/wp-content/uploads/2021/10/PalakPaneer1280x903-1024x722.jpg',
+        mealImagePaths[16],
     duration: 35,
-    ingredients: [
+    ingredients: const [
       '200g Paneer',
       '2 cups Spinach',
       '1 Tomato',
@@ -584,7 +648,7 @@ const dummyMeals = [
       'Spices',
       '2 tbsp Cream',
     ],
-    steps: [
+    steps: const [
       'Blanch spinach and make a puree.',
       'Saute onions, tomatoes, and spices.',
       'Add spinach puree and cook for 5 minutes.',
@@ -598,14 +662,14 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm18',
-    categories: ['c1'],
+    categories: const ['c1'],
     title: 'Rajma Chawal',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.vikhrolicucina.com/uploads/stories/1582355956_Rajmachawal.jpg',
+        mealImagePaths[17],
     duration: 50,
-    ingredients: [
+    ingredients: const [
       '1 cup Rajma (Kidney Beans)',
       '2 Tomatoes',
       '1 Onion',
@@ -613,7 +677,7 @@ const dummyMeals = [
       '1 tbsp Butter',
       'Cooked Rice',
     ],
-    steps: [
+    steps: const [
       'Soak and boil rajma with salt.',
       'Saute onions, tomatoes, and spices.',
       'Mix cooked rajma and simmer.',
@@ -626,20 +690,20 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm19',
-    categories: ['c7'],
+    categories: const ['c7'],
     title: 'Aloo Paratha',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Aloo_Paratha_also_known_as_Batatay_Jo_Phulko.jpg/440px-Aloo_Paratha_also_known_as_Batatay_Jo_Phulko.jpg',
+        mealImagePaths[18],
     duration: 40,
-    ingredients: [
+    ingredients: const [
       '2 cups Whole Wheat Flour',
       '2 Boiled Potatoes',
       'Spices',
       'Butter',
     ],
-    steps: [
+    steps: const [
       'Knead dough with flour and water.',
       'Prepare spiced mashed potato filling.',
       'Roll out dough and stuff with filling.',
@@ -653,21 +717,21 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm20',
-    categories: ['c8'],
+    categories: const ['c8'],
     title: 'Hyderabadi Biryani',
     affordability: Affordability.luxurious,
     complexity: Complexity.hard,
     imageUrl:
-        'https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/hyderabadi-biryani-with-chicken.webp',
+        mealImagePaths[19],
     duration: 90,
-    ingredients: [
+    ingredients: const [
       '2 cups Basmati Rice',
       '200g Chicken/Mutton/Veggies',
       '1 cup Yogurt',
       'Spices',
       'Fried Onions',
     ],
-    steps: [
+    steps: const [
       'Marinate protein/veggies with yogurt and spices.',
       'Parboil rice with whole spices.',
       'Layer rice and marinated protein in a pot.',
@@ -681,14 +745,14 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm21',
-    categories: ['c5','c8'],
+    categories: const ['c5','c8'],
     title: 'Pani Puri',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Pani_Puri1.JPG/400px-Pani_Puri1.JPG',
+        mealImagePaths[20],
     duration: 45,
-    ingredients: [
+    ingredients: const [
       '1 cup Semolina',
       '1/2 cup Flour',
       '1 cup Tamarind Chutney',
@@ -696,7 +760,7 @@ const dummyMeals = [
       'Boiled Potatoes and Chickpeas',
       'Spices',
     ],
-    steps: [
+    steps: const [
       'Make puris with semolina dough and fry.',
       'Prepare spicy mint water and tamarind chutney.',
       'Stuff puris with potatoes and chickpeas.',
@@ -709,14 +773,14 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm22',
-    categories: ['c10'],
+    categories: const ['c10'],
     title: 'Gulab Jamun',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://theartisticcook.com/wp-content/uploads/2024/10/Gulab-Jamun-with-Milk-Powder.jpg',
+        mealImagePaths[21],
     duration: 60,
-    ingredients: [
+    ingredients: const [
       '1 cup Khoya',
       '2 tbsp Flour',
       '1/4 tsp Baking Powder',
@@ -724,7 +788,7 @@ const dummyMeals = [
       'Spices',
       'Oil for frying',
     ],
-    steps: [
+    steps: const [
       'Make dough with khoya, flour, and baking powder.',
       'Shape into small balls.',
       'Deep fry until golden brown.',
@@ -737,14 +801,14 @@ const dummyMeals = [
   ),
   Meal(
     id: 'm23',
-    categories: ['c1','c6'],
+    categories: const ['c1','c6'],
     title: 'Butter Chicken',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1024/https://www.spiceroots.com/spiceroots/wp-content/uploads/2008/05/butterchicken-1024x682.jpg',
+        mealImagePaths[22],
     duration: 50,
-    ingredients: [
+    ingredients: const [
       '500g Chicken',
       '1 cup Tomato Puree',
       '2 tbsp Butter',
@@ -752,7 +816,7 @@ const dummyMeals = [
       'Garlic-Ginger Paste',
       'Spices (Garam Masala, Turmeric)',
     ],
-    steps: [
+    steps: const [
       'Marinate chicken in yogurt and spices',
       'Grill chicken pieces',
       'Prepare creamy tomato gravy',
@@ -766,22 +830,22 @@ const dummyMeals = [
   ),
 
   Meal(
-    id: 'm25',
-    categories: ['c6'],
+    id: 'm24',
+    categories: const ['c6'],
     title: 'Sarson Ka Saag',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://i0.wp.com/binjalsvegkitchen.com/wp-content/uploads/2016/11/Sarson-Ka-Saag-H1.jpg?w=600&ssl=1',
+        mealImagePaths[23],
     duration: 60,
-    ingredients: [
+    ingredients: const [
       'Mustard Greens',
       'Spinach',
       'Makki Ka Atta',
       'Ghee',
       'Spices'
     ],
-    steps: [
+    steps: const [
       'Cook greens until soft',
       'Blend into a coarse paste',
       'Cook with spices and serve with makki di roti'
@@ -793,16 +857,16 @@ const dummyMeals = [
   ),
 
   Meal(
-    id: 'm27',
-    categories: ['c8'],
+    id: 'm25',
+    categories: const ['c8'],
     title: 'Pav Bhaji',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/pav-bhaji-recipe-1.jpg',
+        mealImagePaths[24],
     duration: 30,
-    ingredients: ['Mixed Vegetables', 'Butter', 'Pav Buns', 'Spices'],
-    steps: [
+    ingredients: const ['Mixed Vegetables', 'Butter', 'Pav Buns', 'Spices'],
+    steps: const [
       'Cook and mash vegetables',
       'Prepare spicy bhaji',
       'Serve with buttered pav'
@@ -814,16 +878,16 @@ const dummyMeals = [
   ),
 
   Meal(
-    id: 'm28',
-    categories: ['c9'],
+    id: 'm26',
+    categories: const ['c9'],
     title: 'Macher Jhol',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://rupal-bhatikar.com/wp-content/uploads/2021/11/DSC04256-1.jpg',
+        mealImagePaths[25],
     duration: 40,
-    ingredients: ['Fish', 'Mustard Oil', 'Turmeric', 'Tomatoes', 'Spices'],
-    steps: [
+    ingredients: const ['Fish', 'Mustard Oil', 'Turmeric', 'Tomatoes', 'Spices'],
+    steps: const [
       'Marinate fish with turmeric',
       'Prepare light curry',
       'Simmer fish in curry'
@@ -836,22 +900,22 @@ const dummyMeals = [
 
   // Chinese Meals
   Meal(
-    id: 'm30',
-    categories: ['c3'],
+    id: 'm27',
+    categories: const ['c3'],
     title: 'Vegetable Manchurian',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://vegecravings.com/wp-content/uploads/2017/03/veg-manchurian-dry-recipe-step-by-step-instructions-10.jpg',
+        mealImagePaths[26],
     duration: 35,
-    ingredients: [
+    ingredients: const [
       'Mixed Vegetables',
       'Cornflour',
       'Soy Sauce',
       'Ginger-Garlic Paste',
       'Green Chilies',
     ],
-    steps: [
+    steps: const [
       'Make vegetable balls and deep-fry',
       'Prepare tangy sauce',
       'Toss balls in sauce'
@@ -864,22 +928,22 @@ const dummyMeals = [
 
   // French Meals
   Meal(
-    id: 'm31',
-    categories: ['c4'],
+    id: 'm28',
+    categories: const ['c4'],
     title: 'Ratatouille',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.allrecipes.com/thmb/bkXoArv3mjCmhOHKPBkaQUR48dg=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.jpg',
+        mealImagePaths[27],
     duration: 45,
-    ingredients: [
+    ingredients: const [
       'Zucchini',
       'Eggplant',
       'Bell Peppers',
       'Tomato Sauce',
       'Herbs de Provence',
     ],
-    steps: [
+    steps: const [
       'Slice vegetables thinly',
       'Layer in baking dish',
       'Bake with tomato sauce and herbs'
@@ -892,16 +956,16 @@ const dummyMeals = [
 
   // Additional 25+ meals (abbreviated for space)
   Meal(
-    id: 'm32',
-    categories: ['c5'],
+    id: 'm29',
+    categories: const ['c5'],
     title: 'Vada Pav',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://ministryofcurry.com/wp-content/uploads/2024/06/vada-pav-9.jpg',
+        mealImagePaths[28],
     duration: 30,
-    ingredients: ['Potatoes', 'Gram Flour', 'Pav Buns', 'Green Chutney'],
-    steps: ['Make potato filling', 'Dip in batter and fry', 'Assemble in buns'],
+    ingredients: const ['Potatoes', 'Gram Flour', 'Pav Buns', 'Green Chutney'],
+    steps: const ['Make potato filling', 'Dip in batter and fry', 'Assemble in buns'],
     isGlutenFree: false,
     isVegan: true,
     isVegetarian: true,
@@ -909,16 +973,16 @@ const dummyMeals = [
   ),
 
   Meal(
-    id: 'm33',
-    categories: ['c3'],
+    id: 'm30',
+    categories: const ['c3'],
     title: 'Hakka Noodles',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/hakka-noodles.webp',
+        mealImagePaths[29],
     duration: 25,
-    ingredients: ['Noodles', 'Mixed Vegetables', 'Soy Sauce', 'Vinegar'],
-    steps: ['Boil noodles', 'Stir-fry veggies', 'Combine with sauces'],
+    ingredients: const ['Noodles', 'Mixed Vegetables', 'Soy Sauce', 'Vinegar'],
+    steps: const ['Boil noodles', 'Stir-fry veggies', 'Combine with sauces'],
     isGlutenFree: false,
     isVegan: true,
     isVegetarian: true,
@@ -926,16 +990,16 @@ const dummyMeals = [
   ),
 
   Meal(
-    id: 'm34',
-    categories: ['c4'],
+    id: 'm31',
+    categories: const ['c4'],
     title: 'Quiche Lorraine (Chicken)',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://preppykitchen.co.uk/wp-content/uploads/2024/07/Quiche-Lorraine-Feature.jpg',
+        mealImagePaths[30],
     duration: 55,
-    ingredients: ['Pie Crust', 'Eggs', 'Chicken', 'Cheese', 'Cream'],
-    steps: ['Pre-bake crust', 'Mix filling', 'Bake until golden'],
+    ingredients: const ['Pie Crust', 'Eggs', 'Chicken', 'Cheese', 'Cream'],
+    steps: const ['Pre-bake crust', 'Mix filling', 'Bake until golden'],
     isGlutenFree: false,
     isVegan: false,
     isVegetarian: false,
